@@ -1,0 +1,330 @@
+/* ==========================================================
+   css/style.css – Médiathèque IPNET (TP 1 – IT 231)
+   ========================================================== */
+
+/* ---------- Variables de couleurs ---------- */
+:root {
+    --bleu: #1b3a63;
+    --bleu-clair: #e8eef6;
+    --accent: #d9731a;
+    --fond: #f5f7fa;
+    --texte: #222a35;
+    --gris: #5b6675;
+    --bordure: #d8dee8;
+    --vert: #1e7e34;
+    --vert-clair: #e3f4e7;
+    --rouge: #a4262c;
+    --rouge-clair: #fbe6e7;
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--texte);
+    background: var(--fond);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--bleu);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+h1 {
+    color: var(--bleu);
+    margin-top: 0;
+}
+
+h2 {
+    color: var(--bleu);
+    margin-bottom: 0.3rem;
+}
+
+.conteneur {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+main.conteneur {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* ---------- En-tête et menu ---------- */
+.entete {
+    background: var(--bleu);
+    color: #fff;
+}
+
+.entete-contenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.4rem;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+}
+
+.menu a:hover,
+.menu a.actif {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+/* ---------- Page d'accueil ---------- */
+.intro {
+    font-size: 1.1rem;
+    color: var(--gris);
+    max-width: 640px;
+}
+
+.stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.stat {
+    background: #fff;
+    border: 1px solid var(--bordure);
+    border-left: 5px solid var(--accent);
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    min-width: 200px;
+}
+
+.stat-nombre {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--bleu);
+    line-height: 1.1;
+}
+
+.stat-texte {
+    color: var(--gris);
+}
+
+.bouton {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.7rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bouton:hover {
+    background: var(--bleu);
+    color: #fff;
+}
+
+/* ---------- Filtres du catalogue ---------- */
+.filtres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filtre {
+    padding: 0.3rem 0.9rem;
+    border: 1px solid var(--bordure);
+    border-radius: 999px;
+    background: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.filtre:hover {
+    border-color: var(--accent);
+}
+
+.filtre.actif {
+    background: var(--bleu);
+    border-color: var(--bleu);
+    color: #fff;
+}
+
+.compteur {
+    color: var(--gris);
+}
+
+/* ---------- Tableau du catalogue ---------- */
+.table-conteneur {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid var(--bordure);
+    border-radius: 6px;
+}
+
+.catalogue {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.catalogue th,
+.catalogue td {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid var(--bordure);
+}
+
+.catalogue th {
+    background: var(--bleu-clair);
+    color: var(--bleu);
+    white-space: nowrap;
+}
+
+.catalogue tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.catalogue tbody tr:hover {
+    background: #fafbfd;
+}
+
+.catalogue .prix {
+    white-space: nowrap;
+}
+
+/* ---------- Badges de disponibilité ---------- */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-dispo {
+    background: var(--vert-clair);
+    color: var(--vert);
+}
+
+.badge-indispo {
+    background: var(--rouge-clair);
+    color: var(--rouge);
+}
+
+/* ---------- Page détail ---------- */
+.fiche {
+    background: #fff;
+    border: 1px solid var(--bordure);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    max-width: 640px;
+}
+
+.fiche-auteur {
+    margin-top: -0.5rem;
+    font-size: 1.1rem;
+    color: var(--gris);
+}
+
+.fiche-liste {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.6rem 1rem;
+    margin: 1.2rem 0;
+}
+
+.fiche-liste dt {
+    font-weight: 600;
+    color: var(--gris);
+}
+
+.fiche-liste dd {
+    margin: 0;
+}
+
+/* ---------- Messages d'erreur ---------- */
+.alerte {
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.alerte p {
+    margin: 0.3rem 0;
+}
+
+.alerte-erreur {
+    background: var(--rouge-clair);
+    border: 1px solid var(--rouge);
+    color: var(--rouge);
+}
+
+/* ---------- Page À propos ---------- */
+.date-jour {
+    color: var(--gris);
+}
+
+/* ---------- Pied de page ---------- */
+.pied {
+    background: var(--bleu);
+    color: #cfd8e6;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.pied p {
+    margin: 0;
+}
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 600px) {
+    .fiche-liste {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+    }
+
+    .fiche-liste dd {
+        margin-bottom: 0.7rem;
+    }
+}
